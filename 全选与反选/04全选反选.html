@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="checkbox" name="checkAll"/>全选<br>
+	<input type="checkbox" name="fx"/>反选<br>
+	<input type="checkbox" name="cl"/>JS
+	<input type="checkbox" name="cl"/>JAVA
+	<input type="checkbox" name="cl"/>c#
+	<input type="checkbox" name="cl"/>vb
+	<script type="text/javascript">
+	    // 给全选复选框绑定事件
+	    var checkAll = document.getElementsByName("checkAll")[0];
+	    var cls = document.getElementsByName("cl");
+	    var fx = document.getElementsByName("fx")[0];
+	     checkAll.onclick=function(){
+			 for(var i=0,len=cls.length;i<len;i++){
+				 	cls[i].checked=this.checked;
+			 }
+		 }
+		 fx.onclick=function(){
+			for(var i=0,len=cls.length;i<len;i++){
+				 	cls[i].checked=!cls[i].checked;
+			 }
+		 }
+		for(var i=0,len=cls.length;i<len;i++){
+			cls[i].onclick=function(){
+				var checkCount=0;
+				for(var j=0,len=cls.length;j<len;j++){
+					if(cls[j].checked){
+					  checkCount++;
+					 console.log(checkCount)
+				   }
+				}
+				if(checkCount===cls.length){
+					checkAll.checked=true;
+				}else{
+					checkAll.checked=false;
+				}
+			}
+		}
+	</script>
+</body>
+</html>
