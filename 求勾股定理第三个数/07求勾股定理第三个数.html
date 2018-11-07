@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text"  >+
+	<input type="text"  >=
+	<input type="text"  >
+	<script type="text/javascript">
+	inps=document.querySelectorAll("input");
+	inps[1].onblur=function(){
+		var a=Number(inps[0].value);
+		var b=Number(inps[1].value);
+		c=Math.sqrt(a*a+b*b);
+		inps[2].value=c;
+	}
+	</script>
+</body>
+</html>
