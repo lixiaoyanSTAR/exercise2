@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	 行: <input type="text" id="row" />
+	 列: <input type="text" id="col" />
+	 <button id="btn">创建</button>
+	 <div id="wrap">
+	 	 <!-- <table>
+	 	 	<tr>
+	 	 		<td></td>
+	 	 	</tr>
+	 	 </table> -->
+	 </div>
+	 <script type="text/javascript">
+        function $(id){
+			return document.getElementById(id);
+		}
+		 $("btn").onclick=function(){
+			 $("wrap").innerHTML="";
+			 var rows=$("row").value;
+			 var cols=$("col").value;
+			 var oTable=document.createElement("table");
+			 oTable.border=2;
+			 oTable.style.width="300px";
+			 oTable.style.height="300px";
+			 for(var i=0;i<rows;i++){
+				var oTr=document.createElement("tr");
+				for(var j=0;j<cols;j++){
+				var	oTd=document.createElement("td");
+					oTr.appendChild(oTd);	
+				}
+				console.log(rows.value)
+				var endTd=document.createElement("td");
+				endTd.innerHTML="<a href='javascript:;'>删除</a>";
+				oTr.appendChild(endTd);
+				oTable.appendChild(oTr);	
+			 }
+			 $("wrap").appendChild(oTable);
+			 var as=document.querySelectorAll("a");
+			 for(var i=0;i<as.length;i++){
+				 as[i].onclick=function(){
+					if(confirm("你确定删除吗")){
+						this.parentNode.parentNode.remove();
+						if(oTable.children.length==0){
+							oTable.remove();
+						}
+					}
+				 }
+			 }
+		 }
+		
+	 </script>
+</body>
+</html>
